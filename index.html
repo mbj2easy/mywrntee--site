@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWrntee - Warranty Tracker & Organizer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #f5f5f7;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
+        }
+        .hero .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            background: #e8e8ed;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .hero .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .hero .subtitle {
+            font-size: 22px;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+        .hero .tagline {
+            font-size: 18px;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .app-store-badge {
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .app-store-badge img {
+            height: 54px;
+        }
+        .app-store-badge .placeholder {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Features */
+        .features {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            padding: 60px 20px;
+            text-align: center;
+            background: #fff;
+        }
+        .screenshots h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .screenshots .description {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 48px;
+        }
+        .screenshot-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .screenshot-phone {
+            width: 220px;
+            height: 440px;
+            background: #f0f0f5;
+            border-radius: 20px;
+            border: 2px solid #e0e0e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            padding: 16px;
+            overflow: hidden;
+        }
+        .screenshot-phone img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+        .screenshot-tablet {
+            width: 480px;
+            height: 360px;
+            background: #f0f0f5;
+            border-radius: 20px;
+            border: 2px solid #e0e0e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            padding: 16px;
+            margin: 32px auto 0;
+            overflow: hidden;
+        }
+        .screenshot-tablet img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* Callout */
+        .callout {
+            text-align: center;
+            padding: 60px 20px;
+            background: #f5f5f7;
+        }
+        .callout h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .callout p {
+            font-size: 18px;
+            color: #555;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #e5e5e5;
+            background: #fff;
+        }
+        .footer-links {
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: #0071e3;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 15px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .hero .subtitle { font-size: 18px; }
+            .features h2, .screenshots h2, .callout h2 { font-size: 28px; }
+            .screenshot-phone { width: 160px; height: 320px; }
+            .screenshot-tablet { width: 320px; height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="app-icon">
+            <!-- Replace with your app icon: images/app-icon.png -->
+            <img src="images/app-icon.png" alt="MyWrntee App Icon" onerror="this.style.display='none'; this.parentElement.textContent='🛡️';">
+        </div>
+        <h1>MyWrntee</h1>
+        <p class="subtitle">Warranty Tracker &amp; Organizer</p>
+        <p class="tagline">Never lose track of a warranty again. Organize, monitor, and protect all your product warranties in one place.</p>
+        <div class="app-store-badge">
+            <!-- Replace with App Store badge once app is live -->
+            <!-- <a href="https://apps.apple.com/app/mywrntee/idXXXXXXXXX"><img src="images/app-store-badge.svg" alt="Download on the App Store"></a> -->
+            <span class="placeholder">Coming Soon on the App Store</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Everything You Need</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📷</div>
+                <h3>Scan Receipts Instantly</h3>
+                <p>Use your camera to scan receipts with Live Text recognition. MyWrntee automatically extracts the store name, date, and price.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📁</div>
+                <h3>Organize Your Way</h3>
+                <p>Create custom groups like Home, Office, or Personal Tech. Add colorful icons to make each group instantly recognizable.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Stay Ahead of Expirations</h3>
+                <p>The dashboard shows your warranty timeline at a glance. See which warranties are expiring soon and your total protected value.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖼️</div>
+                <h3>Attach Photos</h3>
+                <p>Save receipt photos and product images alongside each warranty entry. Everything you need for a claim is right there.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h3>Sync Across Devices</h3>
+                <p>Enable iCloud sync to keep your warranties up to date on all your Apple devices. Your data stays in your personal iCloud.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h3>Export Your Data</h3>
+                <p>Export your warranty records as CSV or PDF anytime. Perfect for insurance claims, tax records, or personal backup.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <h2>Designed for iPhone &amp; iPad</h2>
+        <p class="description">Built with SwiftUI featuring the latest Liquid Glass design.</p>
+        <div class="screenshot-row">
+            <div class="screenshot-phone">
+                <!-- Replace: images/iphone-1.png (Home Dashboard) -->
+                <img src="images/iphone-1.png" alt="MyWrntee Home Dashboard" onerror="this.style.display='none'; this.parentElement.textContent='Home Dashboard screenshot';">
+            </div>
+            <div class="screenshot-phone">
+                <!-- Replace: images/iphone-2.png (Items List) -->
+                <img src="images/iphone-2.png" alt="MyWrntee Items List" onerror="this.style.display='none'; this.parentElement.textContent='Items List screenshot';">
+            </div>
+            <div class="screenshot-phone">
+                <!-- Replace: images/iphone-3.png (Item Detail or Search) -->
+                <img src="images/iphone-3.png" alt="MyWrntee Item Detail" onerror="this.style.display='none'; this.parentElement.textContent='Item Detail screenshot';">
+            </div>
+        </div>
+        <div class="screenshot-tablet">
+            <!-- Replace: images/ipad-1.png (iPad sidebar view) -->
+            <img src="images/ipad-1.png" alt="MyWrntee on iPad" onerror="this.style.display='none'; this.parentElement.textContent='iPad screenshot';">
+        </div>
+    </section>
+
+    <!-- Free Callout -->
+    <section class="callout">
+        <h2>Free with No Ads</h2>
+        <p>MyWrntee is completely free with no advertisements and no tracking. Your data is yours and stays on your device. Optional tips are available to support development.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="privacy/">Privacy Policy</a>
+            <a href="support/">Support</a>
+            <a href="mailto:mbj2easy@gmail.com">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2026 Michael Jansen. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
