@@ -53,7 +53,12 @@
             font-size: 18px;
             color: #333;
             max-width: 600px;
-            margin: 0 auto 32px;
+            margin: 0 auto 24px;
+        }
+        .hero .platforms {
+            font-size: 15px;
+            color: #86868b;
+            margin-bottom: 32px;
         }
         .app-store-badge {
             display: inline-block;
@@ -95,6 +100,22 @@
             border-radius: 16px;
             padding: 32px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .feature-card.new-badge {
+            position: relative;
+        }
+        .feature-card.new-badge::after {
+            content: "NEW";
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #0071e3;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
         }
         .feature-icon {
             font-size: 36px;
@@ -178,6 +199,27 @@
             object-fit: cover;
             border-radius: 18px;
         }
+        .screenshot-watch {
+            width: 180px;
+            height: 210px;
+            background: #f0f0f5;
+            border-radius: 40px;
+            border: 2px solid #e0e0e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            padding: 16px;
+            overflow: hidden;
+        }
+        .screenshot-watch img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 38px;
+        }
 
         /* Callout */
         .callout {
@@ -228,6 +270,7 @@
             .features h2, .screenshots h2, .callout h2 { font-size: 28px; }
             .screenshot-phone { width: 160px; height: 320px; }
             .screenshot-tablet { width: 320px; height: 240px; }
+            .screenshot-watch { width: 140px; height: 163px; }
         }
     </style>
 </head>
@@ -237,11 +280,12 @@
     <section class="hero">
         <div class="app-icon">
             <!-- Replace with your app icon: images/app-icon.png -->
-            <img src="images/app-icon.png" alt="MyWrntee App Icon" onerror="this.style.display='none'; this.parentElement.textContent='🛡️';">
+            <img src="images/app-icon.png" alt="MyWrntee App Icon" onerror="this.style.display='none'; this.parentElement.textContent='&#x1F6E1;&#xFE0F;';">
         </div>
         <h1>MyWrntee</h1>
         <p class="subtitle">Warranty Tracker &amp; Organizer</p>
         <p class="tagline">Never lose track of a warranty again. Organize, monitor, and protect all your product warranties in one place.</p>
+        <p class="platforms">Available on iPhone, iPad, Mac, and Apple Watch</p>
         <div class="app-store-badge">
             <!-- Replace with App Store badge once app is live -->
             <!-- <a href="https://apps.apple.com/app/mywrntee/idXXXXXXXXX"><img src="images/app-store-badge.svg" alt="Download on the App Store"></a> -->
@@ -254,61 +298,71 @@
         <h2>Everything You Need</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">📷</div>
-                <h3>Scan Receipts Instantly</h3>
-                <p>Use your camera to scan receipts with Live Text recognition. MyWrntee automatically extracts the store name, date, and price.</p>
+                <div class="feature-icon">&#x1F4F7;</div>
+                <h3>Scan Receipts</h3>
+                <p>Use your camera or photo library to scan receipts with Live Text recognition. Review extracted text and tap to assign store, date, price, and more.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📁</div>
+                <div class="feature-icon">&#x1F4C1;</div>
                 <h3>Organize Your Way</h3>
-                <p>Create custom groups and sub-groups like Home &gt; Kitchen or Office &gt; Laptops. Add colorful icons to make each group instantly recognizable.</p>
+                <p>Create custom groups and sub-groups like Home &gt; Kitchen or Office &gt; Laptops. Add custom photos or colorful icons to each group.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">⏰</div>
+                <div class="feature-icon">&#x23F0;</div>
                 <h3>Stay Ahead of Expirations</h3>
                 <p>The dashboard shows your warranty timeline at a glance. See which warranties are expiring soon and your total protected value.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🖼️</div>
+                <div class="feature-icon">&#x1F5BC;&#xFE0F;</div>
                 <h3>Attach Photos</h3>
-                <p>Save receipt photos and product images alongside each warranty entry. Everything you need for a claim is right there.</p>
+                <p>Save receipt photos and up to 9 product images alongside each warranty. Everything you need for a claim is right there.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">☁️</div>
+                <div class="feature-icon">&#x2601;&#xFE0F;</div>
                 <h3>Sync Across Devices</h3>
-                <p>Enable iCloud sync to keep your warranties up to date on all your Apple devices. Your data stays in your personal iCloud.</p>
+                <p>Enable iCloud sync to keep your warranties up to date on iPhone, iPad, Mac, and Apple Watch. Your data stays in your personal iCloud.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📤</div>
+                <div class="feature-icon">&#x1F4E4;</div>
                 <h3>Export &amp; Share</h3>
-                <p>Export your warranty records as CSV or PDF, or share a beautifully formatted warranty card with photos via any app.</p>
+                <p>Export your warranty records as CSV or PDF with embedded images. Share a beautifully formatted warranty card via email or any app.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔔</div>
+                <div class="feature-icon">&#x1F514;</div>
                 <h3>Expiry Reminders</h3>
-                <p>Get notified before your warranties expire. Choose from multiple reminder intervals so you never miss a claim window.</p>
+                <p>Get push notifications before your warranties expire. Choose from 30, 14, 7, or 1 day reminders so you never miss a claim window.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📱</div>
+                <div class="feature-icon">&#x1F4F1;</div>
                 <h3>Home Screen Widgets</h3>
-                <p>See your expiring warranties at a glance with small, medium, and large home screen widgets. Always stay informed.</p>
+                <p>See your expiring warranties at a glance with small, medium, and large home screen widgets. Always stay informed without opening the app.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🗣️</div>
+                <div class="feature-icon">&#x1F5E3;&#xFE0F;</div>
                 <h3>Siri &amp; Spotlight</h3>
                 <p>Search your warranties from Spotlight or ask Siri to show expiring items. Quick access without even opening the app.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📍</div>
+                <div class="feature-icon">&#x1F4CD;</div>
                 <h3>Smart Location</h3>
-                <p>Address autocomplete when entering purchase locations. Tap any location to open it directly in Apple Maps.</p>
+                <p>Address autocomplete when entering purchase locations. Tap any saved location to open it directly in Apple Maps.</p>
+            </div>
+            <div class="feature-card new-badge">
+                <div class="feature-icon">&#x231A;</div>
+                <h3>Apple Watch App</h3>
+                <p>Check your warranties right from your wrist. View expiring items, browse by group, and see full warranty details on Apple Watch.</p>
+            </div>
+            <div class="feature-card new-badge">
+                <div class="feature-icon">&#x1F4CB;</div>
+                <h3>Tap to Assign</h3>
+                <p>After scanning a receipt, review the extracted text and tap each line to assign it to the right field. You control what goes where.</p>
             </div>
         </div>
     </section>
 
     <!-- Screenshots Section -->
     <section class="screenshots">
-        <h2>Designed for iPhone &amp; iPad</h2>
+        <h2>Designed for iPhone, iPad &amp; Apple Watch</h2>
         <p class="description">Built with SwiftUI featuring the latest Liquid Glass design.</p>
         <div class="screenshot-row">
             <div class="screenshot-phone">
@@ -324,9 +378,15 @@
                 <img src="images/iphone-3.png" alt="MyWrntee Item Detail" onerror="this.style.display='none'; this.parentElement.textContent='Item Detail screenshot';">
             </div>
         </div>
-        <div class="screenshot-tablet">
-            <!-- Replace: images/ipad-1.png (iPad sidebar view) -->
-            <img src="images/ipad-1.png" alt="MyWrntee on iPad" onerror="this.style.display='none'; this.parentElement.textContent='iPad screenshot';">
+        <div class="screenshot-row" style="margin-top: 32px;">
+            <div class="screenshot-tablet">
+                <!-- Replace: images/ipad-1.png (iPad sidebar view) -->
+                <img src="images/ipad-1.png" alt="MyWrntee on iPad" onerror="this.style.display='none'; this.parentElement.textContent='iPad screenshot';">
+            </div>
+            <div class="screenshot-watch">
+                <!-- Replace: images/watch-1.png (Apple Watch expiring soon) -->
+                <img src="images/watch-1.png" alt="MyWrntee on Apple Watch" onerror="this.style.display='none'; this.parentElement.textContent='Apple Watch screenshot';">
+            </div>
         </div>
     </section>
 
