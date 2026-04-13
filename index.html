@@ -101,22 +101,6 @@
             padding: 32px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
-        .feature-card.new-badge {
-            position: relative;
-        }
-        .feature-card.new-badge::after {
-            content: "NEW";
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #0071e3;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-            letter-spacing: 0.5px;
-        }
         .feature-icon {
             font-size: 36px;
             margin-bottom: 16px;
@@ -347,12 +331,12 @@
                 <h3>Smart Location</h3>
                 <p>Address autocomplete when entering purchase locations. Tap any saved location to open it directly in Apple Maps.</p>
             </div>
-            <div class="feature-card new-badge">
+            <div class="feature-card">
                 <div class="feature-icon">&#x231A;</div>
                 <h3>Apple Watch App</h3>
                 <p>Check your warranties right from your wrist. View expiring items, browse by group, and see full warranty details on Apple Watch.</p>
             </div>
-            <div class="feature-card new-badge">
+            <div class="feature-card">
                 <div class="feature-icon">&#x1F4CB;</div>
                 <h3>Tap to Assign</h3>
                 <p>After scanning a receipt, review the extracted text and tap each line to assign it to the right field. You control what goes where.</p>
@@ -383,6 +367,8 @@
                 <!-- Replace: images/ipad-1.png (iPad sidebar view) -->
                 <img src="images/ipad-1.png" alt="MyWrntee on iPad" onerror="this.style.display='none'; this.parentElement.textContent='iPad screenshot';">
             </div>
+        </div>
+        <div class="screenshot-row" style="margin-top: 32px;">
             <div class="screenshot-watch">
                 <!-- Replace: images/watch-1.png (Apple Watch expiring soon) -->
                 <img src="images/watch-1.png" alt="MyWrntee on Apple Watch" onerror="this.style.display='none'; this.parentElement.textContent='Apple Watch screenshot';">
