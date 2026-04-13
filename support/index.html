@@ -37,8 +37,111 @@
         .app-info {
             color: #86868b;
             font-size: 14px;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
+
+        /* Search */
+        .search-box {
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            font-size: 16px;
+            border: 1px solid #e0e0e5;
+            border-radius: 12px;
+            background: #f5f5f7;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .search-box input:focus {
+            border-color: #0071e3;
+            background: #fff;
+        }
+        .search-box .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #86868b;
+            font-size: 16px;
+            pointer-events: none;
+        }
+        .search-box .clear-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #c7c7cc;
+            border: none;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .search-box .clear-btn.visible { display: flex; }
+
+        /* Category filters */
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+        .category-btn {
+            padding: 6px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #e0e0e5;
+            border-radius: 20px;
+            background: #fff;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .category-btn:hover {
+            border-color: #0071e3;
+            color: #0071e3;
+        }
+        .category-btn.active {
+            background: #0071e3;
+            border-color: #0071e3;
+            color: #fff;
+        }
+
+        /* Results count */
+        .results-count {
+            font-size: 13px;
+            color: #86868b;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .results-count.visible { display: block; }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        .no-results.visible { display: block; }
+        .no-results p {
+            color: #86868b;
+            font-size: 15px;
+        }
+        .no-results .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        /* FAQ items */
         h2 {
             font-size: 20px;
             font-weight: 600;
@@ -47,31 +150,91 @@
             color: #1d1d1f;
         }
         .faq-item {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 4px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            transition: opacity 0.2s, max-height 0.3s;
         }
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+        .faq-item.hidden {
+            display: none;
         }
-        .faq-question {
-            font-size: 17px;
+        .faq-item summary {
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 8px;
             color: #1d1d1f;
+            padding: 16px 20px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: background 0.15s;
         }
-        .faq-answer {
+        .faq-item summary:hover {
+            background: #f9f9fb;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+";
+            font-size: 20px;
+            font-weight: 400;
+            color: #86868b;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+        .faq-item[open] summary::after {
+            content: "\2212";
+        }
+        .faq-item .faq-answer {
             font-size: 15px;
             color: #555;
+            padding: 0 20px 16px;
+            line-height: 1.6;
         }
-        .faq-answer ol, .faq-answer ul {
+        .faq-item .faq-answer ul, .faq-item .faq-answer ol {
             padding-left: 24px;
             margin-top: 8px;
         }
-        .faq-answer li {
+        .faq-item .faq-answer li {
             margin-bottom: 4px;
         }
+        .faq-item .category-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .tag-getting-started { background: #e8f5e9; color: #2e7d32; }
+        .tag-features { background: #e3f2fd; color: #1565c0; }
+        .tag-data { background: #fff3e0; color: #e65100; }
+        .tag-devices { background: #f3e5f5; color: #7b1fa2; }
+        .tag-customization { background: #fce4ec; color: #c62828; }
+
+        .faq-item .summary-content {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex: 1;
+            min-width: 0;
+        }
+        .faq-item .summary-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Highlight matches */
+        mark {
+            background: #fff3b0;
+            color: inherit;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+
         .contact-box {
             background: #f5f5f7;
             border-radius: 12px;
@@ -109,6 +272,14 @@
             margin: 0 12px;
         }
         .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px; }
+            h1 { font-size: 26px; }
+            .faq-item summary { padding: 14px 16px; font-size: 15px; }
+            .faq-item .faq-answer { padding: 0 16px 14px; font-size: 14px; }
+            .category-tag { display: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -117,141 +288,294 @@
         <h1>Support</h1>
         <p class="app-info">MyWrntee &middot; Warranty Tracker &amp; Organizer</p>
 
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I add a warranty item?</p>
-            <p class="faq-answer">Tap the <strong>+</strong> button on the Items tab or Home screen. You can either scan a receipt with your camera or enter the details manually. Fill in the product name, company, purchase date, and warranty period, then tap Save.</p>
+        <!-- Search -->
+        <div class="search-box">
+            <span class="search-icon">&#x1F50D;</span>
+            <input type="text" id="faq-search" placeholder="Search FAQs..." autocomplete="off">
+            <button class="clear-btn" id="clear-search" aria-label="Clear search">&times;</button>
         </div>
 
-        <div class="faq-item">
-            <p class="faq-question">How do I scan a receipt?</p>
-            <p class="faq-answer">When adding a new item, tap <strong>Scan Receipt</strong> at the top of the form. Point your camera at the receipt or choose a photo from your library. MyWrntee extracts the text using Live Text, then shows a <strong>Tap to Assign</strong> review screen where you tap each line to assign it to the correct field (store, date, price, etc.).</p>
+        <!-- Category Filters -->
+        <div class="category-filters">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="getting-started">Getting Started</button>
+            <button class="category-btn" data-category="features">Features</button>
+            <button class="category-btn" data-category="data">Data &amp; Privacy</button>
+            <button class="category-btn" data-category="devices">Devices</button>
+            <button class="category-btn" data-category="customization">Customization</button>
         </div>
 
-        <div class="faq-item">
-            <p class="faq-question">How do I organize items into groups?</p>
-            <p class="faq-answer">Go to the <strong>Groups</strong> tab and tap <strong>+</strong> to create a new group. Give it a name, pick an icon and color. When adding or editing an item, select which group it belongs to. You can also create <strong>sub-groups</strong> for deeper organization (e.g., Home &gt; Kitchen).</p>
+        <!-- Results count -->
+        <p class="results-count" id="results-count"></p>
+
+        <!-- FAQ Items -->
+        <div id="faq-list">
+
+            <!-- Getting Started -->
+            <details class="faq-item" data-category="getting-started">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-getting-started">Getting Started</span>
+                        <span class="summary-text">How do I add a warranty item?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Tap the <strong>+</strong> button on the Items tab or Home screen. You can either scan a receipt with your camera or enter the details manually. Fill in the product name, company, purchase date, and warranty period, then tap Save.</div>
+            </details>
+
+            <details class="faq-item" data-category="getting-started">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-getting-started">Getting Started</span>
+                        <span class="summary-text">How do I scan a receipt?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">When adding a new item, tap <strong>Scan Receipt</strong> at the top of the form. Point your camera at the receipt or choose a photo from your library. MyWrntee extracts the text using Live Text, then shows a <strong>Tap to Assign</strong> review screen where you tap each line to assign it to the correct field (store, date, price, etc.).</div>
+            </details>
+
+            <details class="faq-item" data-category="getting-started">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-getting-started">Getting Started</span>
+                        <span class="summary-text">How do I organize items into groups?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to the <strong>Groups</strong> tab and tap <strong>+</strong> to create a new group. Give it a name, pick an icon and color. When adding or editing an item, select which group it belongs to. You can also create <strong>sub-groups</strong> for deeper organization (e.g., Home &gt; Kitchen).</div>
+            </details>
+
+            <details class="faq-item" data-category="getting-started">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-getting-started">Getting Started</span>
+                        <span class="summary-text">What happens during the onboarding walkthrough?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">When you first open MyWrntee, you'll see a 4-page guided walkthrough: a <strong>Welcome</strong> page introducing the app, a <strong>Features</strong> overview, <strong>Quick Tips</strong> for getting started, and a <strong>Template Selection</strong> page where you can choose starter groups for Home, Office, or Personal Tech &mdash; or start from scratch. You can always customize your groups later in the Groups tab.</div>
+            </details>
+
+            <details class="faq-item" data-category="getting-started">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-getting-started">Getting Started</span>
+                        <span class="summary-text">Is MyWrntee really free?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Yes. MyWrntee is completely free with all features unlocked and no advertisements. There is an optional Tip Jar in Settings if you'd like to support development.</div>
+            </details>
+
+            <!-- Features -->
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">What is "Tap to Assign" for receipt scanning?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">After scanning a receipt, MyWrntee shows you all the extracted text line by line. Tap any line to assign it to a field like Store Name, Purchase Date, Price, or Notes. This gives you full control over what gets filled in, rather than relying on automatic detection alone.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do I set up expiry reminders?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; Notifications</strong> and choose your reminder intervals: 30 days, 14 days, 7 days, or 1 day before expiry. The app will prompt you to allow notifications if you haven't already. Reminders are sent at 9:00 AM on each selected day.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do I share warranty details?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Open any warranty item and tap the <strong>Share</strong> button in the top right. MyWrntee creates a beautifully formatted warranty card (PNG image) that includes all details and attached photos. Share it via Messages, Mail, AirDrop, or any other app.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How does address autocomplete work?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">When adding or editing an item, start typing in the <strong>Purchase Location</strong> field. MyWrntee suggests matching addresses automatically using Apple Maps. Tap a suggestion to fill in the full address. You can also tap any saved location in item details to open it in Apple Maps.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do sub-groups work?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">When creating or editing a group, you can assign it a <strong>parent group</strong>. This lets you build nested organization like <strong>Home &gt; Kitchen</strong> or <strong>Office &gt; Laptops</strong>. Items in sub-groups are also visible when browsing the parent group.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do I set a lifetime warranty?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">When adding or editing an item, tap the <strong>Life</strong> button in the Warranty Period section. This marks the warranty as lasting forever &mdash; it will never show as expired. You can also choose from preset periods: 1 year, 2 years, 3 years, or 5 years.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do I sort and filter my items?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">On the Items tab, use the <strong>All / Active / Expired</strong> filter at the top to narrow your list. Tap the <strong>sort icon</strong> (arrows) in the toolbar to sort by purchase date, expiry date, name, or price. Tap the same option again to reverse the order.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">What are Quick Actions?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Long-press (or 3D Touch) the MyWrntee app icon on your home screen to see shortcuts: <strong>Add Item</strong> opens the new item form directly, and <strong>Expiring Soon</strong> jumps to your dashboard so you can see what needs attention.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">What are Warranty Insights?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">The <strong>Warranty Insights</strong> card appears on your Home dashboard once you have 2 or more items. It shows your <strong>average warranty length</strong> and <strong>cost per month</strong> of protection, helping you understand the value of your warranty coverage.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">How do I add multiple items at once (Batch Import)?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">On the <strong>Items</strong> tab, tap the <strong>+</strong> menu and select <strong>Batch Import</strong>. You'll see a list where each row has fields for item name and company. Expand "More Details" on any row to set the purchase date, warranty period, price, and group. Tap <strong>Add Another Item</strong> to add more rows. When you're done, tap <strong>Save All</strong> to add all valid items at once.</div>
+            </details>
+
+            <details class="faq-item" data-category="features">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-features">Features</span>
+                        <span class="summary-text">Can I use Siri or Spotlight to find warranties?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Yes. Your warranty items are automatically indexed in Spotlight &mdash; just swipe down on your home screen and search for any product name. You can also ask Siri to show your expiring warranties or add a new warranty using App Shortcuts.</div>
+            </details>
+
+            <!-- Data & Privacy -->
+            <details class="faq-item" data-category="data">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-data">Data &amp; Privacy</span>
+                        <span class="summary-text">How do I enable iCloud Sync?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; iCloud</strong> and toggle on <strong>iCloud Sync</strong>. The app will need to restart to enable syncing. Once enabled, your warranties sync automatically across all your Apple devices signed into the same iCloud account.</div>
+            </details>
+
+            <details class="faq-item" data-category="data">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-data">Data &amp; Privacy</span>
+                        <span class="summary-text">How do I export my data?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; Data Management &gt; Export Data</strong>. Choose your format:
+                    <ul>
+                        <li><strong>CSV</strong> &mdash; Spreadsheet format, great for Excel or Numbers</li>
+                        <li><strong>PDF</strong> &mdash; Formatted report, ideal for insurance claims</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="faq-item" data-category="data">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-data">Data &amp; Privacy</span>
+                        <span class="summary-text">How do I delete all my data?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; Data Management &gt; Delete All Data</strong>. This will permanently remove all groups, items, and photos from the app. This action cannot be undone.</div>
+            </details>
+
+            <details class="faq-item" data-category="data">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-data">Data &amp; Privacy</span>
+                        <span class="summary-text">Is my data private?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Yes. All data is stored locally on your device. If you enable iCloud Sync, data is stored in your personal iCloud account. MyWrntee does not collect personal information, use analytics, or share data with third parties. See our <a href="../privacy/">Privacy Policy</a> for details.</div>
+            </details>
+
+            <!-- Devices -->
+            <details class="faq-item" data-category="devices">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-devices">Devices</span>
+                        <span class="summary-text">How does the Apple Watch app work?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">MyWrntee includes a companion Apple Watch app that syncs your warranties via iCloud. On your watch you can:
+                    <ul>
+                        <li>View a dashboard of active, expiring, and expired warranty counts</li>
+                        <li>Browse all warranties or filter by group</li>
+                        <li>See full warranty details including dates, price, location, and notes</li>
+                    </ul>
+                    The watch app is read-only &mdash; add and edit warranties on your iPhone.
+                    <br><br><strong>Important:</strong> iCloud Sync must be enabled in the iPhone app (Settings &gt; iCloud) for your warranties to appear on Apple Watch.
+                </div>
+            </details>
+
+            <details class="faq-item" data-category="devices">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-devices">Devices</span>
+                        <span class="summary-text">How do I add home screen widgets?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Long-press on your home screen and tap the <strong>+</strong> button in the top corner. Search for <strong>MyWrntee</strong> and choose from small, medium, or large widgets. Widgets show your upcoming warranty expirations at a glance.</div>
+            </details>
+
+            <!-- Customization -->
+            <details class="faq-item" data-category="customization">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-customization">Customization</span>
+                        <span class="summary-text">How do I lock the app with Face ID?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; Security</strong> and toggle on <strong>Face ID</strong> (or Touch ID / Optic ID depending on your device). You'll be asked to verify your identity first. Once enabled, the app locks automatically when you leave and requires authentication each time you reopen it. You can also toggle this from the app icon &mdash; long-press and tap <strong>Enable/Disable Face ID</strong>.</div>
+            </details>
+
+            <details class="faq-item" data-category="customization">
+                <summary>
+                    <span class="summary-content">
+                        <span class="category-tag tag-customization">Customization</span>
+                        <span class="summary-text">How do I change the app's accent color?</span>
+                    </span>
+                </summary>
+                <div class="faq-answer">Go to <strong>Settings &gt; Display</strong> and choose from 10 accent colors: Blue, Indigo, Purple, Pink, Red, Orange, Yellow, Green, Teal, or Cyan. The color applies immediately throughout the entire app, changing buttons, links, and highlights to match your preference.</div>
+            </details>
+
         </div>
 
-        <div class="faq-item">
-            <p class="faq-question">How do I enable iCloud Sync?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; iCloud</strong> and toggle on <strong>iCloud Sync</strong>. The app will need to restart to enable syncing. Once enabled, your warranties sync automatically across all your Apple devices signed into the same iCloud account.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I export my data?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; Data Management &gt; Export Data</strong>. Choose your format:</p>
-            <p class="faq-answer">
-            <ul>
-                <li><strong>CSV</strong> &mdash; Spreadsheet format, great for Excel or Numbers</li>
-                <li><strong>PDF</strong> &mdash; Formatted report, ideal for insurance claims</li>
-            </ul>
-            </p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I delete all my data?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; Data Management &gt; Delete All Data</strong>. This will permanently remove all groups, items, and photos from the app. This action cannot be undone.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">Is my data private?</p>
-            <p class="faq-answer">Yes. All data is stored locally on your device. If you enable iCloud Sync, data is stored in your personal iCloud account. MyWrntee does not collect personal information, use analytics, or share data with third parties. See our <a href="../privacy/">Privacy Policy</a> for details.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">Is MyWrntee really free?</p>
-            <p class="faq-answer">Yes. MyWrntee is completely free with all features unlocked and no advertisements. There is an optional Tip Jar in Settings if you'd like to support development.</p>
-        </div>
-
-        <h2>More Features</h2>
-
-        <div class="faq-item">
-            <p class="faq-question">How does the Apple Watch app work?</p>
-            <p class="faq-answer">MyWrntee includes a companion Apple Watch app that syncs your warranties via iCloud. On your watch you can:
-            <ul>
-                <li>View a dashboard of active, expiring, and expired warranty counts</li>
-                <li>Browse all warranties or filter by group</li>
-                <li>See full warranty details including dates, price, location, and notes</li>
-            </ul>
-            The watch app is read-only &mdash; add and edit warranties on your iPhone.
-            <br><br><strong>Important:</strong> iCloud Sync must be enabled in the iPhone app (Settings &gt; iCloud) for your warranties to appear on Apple Watch.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">What is "Tap to Assign" for receipt scanning?</p>
-            <p class="faq-answer">After scanning a receipt, MyWrntee shows you all the extracted text line by line. Tap any line to assign it to a field like Store Name, Purchase Date, Price, or Notes. This gives you full control over what gets filled in, rather than relying on automatic detection alone.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I set up expiry reminders?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; Notifications</strong> and choose your reminder intervals: 30 days, 14 days, 7 days, or 1 day before expiry. The app will prompt you to allow notifications if you haven't already. Reminders are sent at 9:00 AM on each selected day.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I add home screen widgets?</p>
-            <p class="faq-answer">Long-press on your home screen and tap the <strong>+</strong> button in the top corner. Search for <strong>MyWrntee</strong> and choose from small, medium, or large widgets. Widgets show your upcoming warranty expirations at a glance.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">Can I use Siri or Spotlight to find warranties?</p>
-            <p class="faq-answer">Yes. Your warranty items are automatically indexed in Spotlight &mdash; just swipe down on your home screen and search for any product name. You can also ask Siri to show your expiring warranties or add a new warranty using App Shortcuts.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I share warranty details?</p>
-            <p class="faq-answer">Open any warranty item and tap the <strong>Share</strong> button in the top right. MyWrntee creates a beautifully formatted warranty card (PNG image) that includes all details and attached photos. Share it via Messages, Mail, AirDrop, or any other app.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How does address autocomplete work?</p>
-            <p class="faq-answer">When adding or editing an item, start typing in the <strong>Purchase Location</strong> field. MyWrntee suggests matching addresses automatically using Apple Maps. Tap a suggestion to fill in the full address. You can also tap any saved location in item details to open it in Apple Maps.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do sub-groups work?</p>
-            <p class="faq-answer">When creating or editing a group, you can assign it a <strong>parent group</strong>. This lets you build nested organization like <strong>Home &gt; Kitchen</strong> or <strong>Office &gt; Laptops</strong>. Items in sub-groups are also visible when browsing the parent group.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I set a lifetime warranty?</p>
-            <p class="faq-answer">When adding or editing an item, tap the <strong>Life</strong> button in the Warranty Period section. This marks the warranty as lasting forever &mdash; it will never show as expired. You can also choose from preset periods: 1 year, 2 years, 3 years, or 5 years.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I sort and filter my items?</p>
-            <p class="faq-answer">On the Items tab, use the <strong>All / Active / Expired</strong> filter at the top to narrow your list. Tap the <strong>sort icon</strong> (arrows) in the toolbar to sort by purchase date, expiry date, name, or price. Tap the same option again to reverse the order.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">What are Quick Actions?</p>
-            <p class="faq-answer">Long-press (or 3D Touch) the MyWrntee app icon on your home screen to see shortcuts: <strong>Add Item</strong> opens the new item form directly, and <strong>Expiring Soon</strong> jumps to your dashboard so you can see what needs attention.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">What are Warranty Insights?</p>
-            <p class="faq-answer">The <strong>Warranty Insights</strong> card appears on your Home dashboard once you have 2 or more items. It shows your <strong>average warranty length</strong> and <strong>cost per month</strong> of protection, helping you understand the value of your warranty coverage.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I lock the app with Face ID?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; Security</strong> and toggle on <strong>Face ID</strong> (or Touch ID / Optic ID depending on your device). You'll be asked to verify your identity first. Once enabled, the app locks automatically when you leave and requires authentication each time you reopen it. You can also toggle this from the app icon &mdash; long-press and tap <strong>Enable/Disable Face ID</strong>.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I change the app's accent color?</p>
-            <p class="faq-answer">Go to <strong>Settings &gt; Display</strong> and choose from 10 accent colors: Blue, Indigo, Purple, Pink, Red, Orange, Yellow, Green, Teal, or Cyan. The color applies immediately throughout the entire app, changing buttons, links, and highlights to match your preference.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">How do I add multiple items at once (Batch Import)?</p>
-            <p class="faq-answer">On the <strong>Items</strong> tab, tap the <strong>+</strong> menu and select <strong>Batch Import</strong>. You'll see a list where each row has fields for item name and company. Expand "More Details" on any row to set the purchase date, warranty period, price, and group. Tap <strong>Add Another Item</strong> to add more rows. When you're done, tap <strong>Save All</strong> to add all valid items at once.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-question">What happens during the onboarding walkthrough?</p>
-            <p class="faq-answer">When you first open MyWrntee, you'll see a 4-page guided walkthrough: a <strong>Welcome</strong> page introducing the app, a <strong>Features</strong> overview, <strong>Quick Tips</strong> for getting started, and a <strong>Template Selection</strong> page where you can choose starter groups for Home, Office, or Personal Tech &mdash; or start from scratch. You can always customize your groups later in the Groups tab.</p>
+        <!-- No results message -->
+        <div class="no-results" id="no-results">
+            <div class="icon">&#x1F50D;</div>
+            <p>No matching questions found.</p>
+            <p style="margin-top: 8px;">Try a different search term or <a href="#" onclick="clearSearch(); return false;">clear the search</a>.</p>
         </div>
 
         <div class="contact-box">
@@ -268,5 +592,112 @@
             &copy; 2026 Michael Jansen. All rights reserved.
         </div>
     </div>
+
+    <script>
+        const searchInput = document.getElementById('faq-search');
+        const clearBtn = document.getElementById('clear-search');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const faqItems = document.querySelectorAll('.faq-item');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('results-count');
+
+        let activeCategory = 'all';
+
+        // Store original text for restoring after highlight removal
+        const originalData = [];
+        faqItems.forEach(item => {
+            originalData.push({
+                question: item.querySelector('.summary-text').innerHTML,
+                answer: item.querySelector('.faq-answer').innerHTML
+            });
+        });
+
+        // Category filter
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.category;
+                filterFAQs();
+            });
+        });
+
+        // Search
+        searchInput.addEventListener('input', () => {
+            clearBtn.classList.toggle('visible', searchInput.value.length > 0);
+            filterFAQs();
+        });
+
+        clearBtn.addEventListener('click', clearSearch);
+
+        function clearSearch() {
+            searchInput.value = '';
+            clearBtn.classList.remove('visible');
+            filterFAQs();
+            searchInput.focus();
+        }
+
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function highlightText(text, query) {
+            if (!query) return text;
+            // Only highlight in text nodes, skip HTML tags
+            const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
+            return text.replace(/>([^<]*)</g, (match, content) => {
+                return '>' + content.replace(regex, '<mark>$1</mark>') + '<';
+            });
+        }
+
+        function filterFAQs() {
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            faqItems.forEach((item, i) => {
+                const category = item.dataset.category;
+                const questionText = originalData[i].question;
+                const answerEl = item.querySelector('.faq-answer');
+                const summaryText = item.querySelector('.summary-text');
+
+                // Restore original content
+                summaryText.innerHTML = originalData[i].question;
+                answerEl.innerHTML = originalData[i].answer;
+
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                const fullText = (questionText + ' ' + answerEl.textContent).toLowerCase();
+                const matchesSearch = !query || fullText.includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+
+                    // Apply highlights
+                    if (query) {
+                        summaryText.innerHTML = highlightText(summaryText.innerHTML, query);
+                        answerEl.innerHTML = highlightText(answerEl.innerHTML, query);
+                        // Auto-expand matching items when searching
+                        item.open = true;
+                    } else {
+                        item.open = false;
+                    }
+                } else {
+                    item.classList.add('hidden');
+                    item.open = false;
+                }
+            });
+
+            // Show/hide no results
+            noResults.classList.toggle('visible', visibleCount === 0);
+
+            // Show results count when filtering
+            if (query || activeCategory !== 'all') {
+                resultsCount.textContent = visibleCount + ' question' + (visibleCount !== 1 ? 's' : '') + ' found';
+                resultsCount.classList.add('visible');
+            } else {
+                resultsCount.classList.remove('visible');
+            }
+        }
+    </script>
 </body>
 </html>
