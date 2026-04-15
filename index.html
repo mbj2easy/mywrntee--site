@@ -132,17 +132,26 @@
             color: #86868b;
             margin-bottom: 48px;
         }
+        .device-heading {
+            font-size: 22px;
+            font-weight: 600;
+            color: #86868b;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         .screenshot-row {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 16px;
             flex-wrap: wrap;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         .screenshot-phone {
-            width: 220px;
-            height: 440px;
+            width: 200px;
+            height: 400px;
             background: #f0f0f5;
             border-radius: 20px;
             border: 2px solid #e0e0e5;
@@ -162,10 +171,10 @@
             border-radius: 18px;
         }
         .screenshot-tablet {
-            width: 480px;
-            height: 360px;
+            width: 220px;
+            height: 165px;
             background: #f0f0f5;
-            border-radius: 20px;
+            border-radius: 14px;
             border: 2px solid #e0e0e5;
             display: flex;
             align-items: center;
@@ -173,15 +182,14 @@
             color: #999;
             font-size: 14px;
             text-align: center;
-            padding: 16px;
-            margin: 32px auto 0;
+            padding: 8px;
             overflow: hidden;
         }
         .screenshot-tablet img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 18px;
+            border-radius: 12px;
         }
         .screenshot-watch {
             width: 180px;
@@ -252,9 +260,10 @@
             .hero h1 { font-size: 36px; }
             .hero .subtitle { font-size: 18px; }
             .features h2, .screenshots h2, .callout h2 { font-size: 28px; }
-            .screenshot-phone { width: 160px; height: 320px; }
-            .screenshot-tablet { width: 320px; height: 240px; }
-            .screenshot-watch { width: 140px; height: 163px; }
+            .screenshot-phone { width: 140px; height: 280px; }
+            .screenshot-tablet { width: 160px; height: 120px; }
+            .screenshot-watch { width: 130px; height: 152px; }
+            .device-heading { font-size: 18px; margin-top: 32px; }
         }
     </style>
 </head>
@@ -450,30 +459,91 @@
     <section class="screenshots">
         <h2>Designed for iPhone, iPad &amp; Apple Watch</h2>
         <p class="description">Built with SwiftUI featuring the latest Liquid Glass design.</p>
+
+        <!-- iPhone Screenshots (Row 1: 5 images) -->
+        <h3 class="device-heading">iPhone</h3>
         <div class="screenshot-row">
             <div class="screenshot-phone">
-                <!-- Replace: images/iphone-1.png (Home Dashboard) -->
-                <img src="images/iphone-1.png" alt="MyWrntee Home Dashboard" onerror="this.style.display='none'; this.parentElement.textContent='Home Dashboard screenshot';">
+                <img src="images/iphone-1.png" alt="MyWrntee Home Dashboard" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 1';">
             </div>
             <div class="screenshot-phone">
-                <!-- Replace: images/iphone-2.png (Items List) -->
-                <img src="images/iphone-2.png" alt="MyWrntee Items List" onerror="this.style.display='none'; this.parentElement.textContent='Items List screenshot';">
+                <img src="images/iphone-2.png" alt="MyWrntee Items List" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 2';">
             </div>
             <div class="screenshot-phone">
-                <!-- Replace: images/iphone-3.png (Item Detail or Search) -->
-                <img src="images/iphone-3.png" alt="MyWrntee Item Detail" onerror="this.style.display='none'; this.parentElement.textContent='Item Detail screenshot';">
+                <img src="images/iphone-3.png" alt="MyWrntee Item Detail" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 3';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-4.png" alt="MyWrntee Groups" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 4';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-5.png" alt="MyWrntee Search" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 5';">
             </div>
         </div>
-        <div class="screenshot-row" style="margin-top: 32px;">
+        <!-- iPhone Screenshots (Row 2: 5 images) -->
+        <div class="screenshot-row" style="margin-top: 24px;">
+            <div class="screenshot-phone">
+                <img src="images/iphone-6.png" alt="MyWrntee Settings" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 6';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-7.png" alt="MyWrntee Add Item" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 7';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-8.png" alt="MyWrntee Receipt Scanner" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 8';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-9.png" alt="MyWrntee Export" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 9';">
+            </div>
+            <div class="screenshot-phone">
+                <img src="images/iphone-10.png" alt="MyWrntee Widgets" onerror="this.style.display='none'; this.parentElement.textContent='iPhone 10';">
+            </div>
+        </div>
+
+        <!-- iPad Screenshots (Row 1: 5 images) -->
+        <h3 class="device-heading">iPad</h3>
+        <div class="screenshot-row">
             <div class="screenshot-tablet">
-                <!-- Replace: images/ipad-1.png (iPad sidebar view) -->
-                <img src="images/ipad-1.png" alt="MyWrntee on iPad" onerror="this.style.display='none'; this.parentElement.textContent='iPad screenshot';">
+                <img src="images/ipad-1.png" alt="MyWrntee iPad Dashboard" onerror="this.style.display='none'; this.parentElement.textContent='iPad 1';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-2.png" alt="MyWrntee iPad Items" onerror="this.style.display='none'; this.parentElement.textContent='iPad 2';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-3.png" alt="MyWrntee iPad Detail" onerror="this.style.display='none'; this.parentElement.textContent='iPad 3';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-4.png" alt="MyWrntee iPad Groups" onerror="this.style.display='none'; this.parentElement.textContent='iPad 4';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-5.png" alt="MyWrntee iPad Search" onerror="this.style.display='none'; this.parentElement.textContent='iPad 5';">
             </div>
         </div>
-        <div class="screenshot-row" style="margin-top: 32px;">
+        <!-- iPad Screenshots (Row 2: 5 images) -->
+        <div class="screenshot-row" style="margin-top: 24px;">
+            <div class="screenshot-tablet">
+                <img src="images/ipad-6.png" alt="MyWrntee iPad Settings" onerror="this.style.display='none'; this.parentElement.textContent='iPad 6';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-7.png" alt="MyWrntee iPad Add Item" onerror="this.style.display='none'; this.parentElement.textContent='iPad 7';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-8.png" alt="MyWrntee iPad Drag Drop" onerror="this.style.display='none'; this.parentElement.textContent='iPad 8';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-9.png" alt="MyWrntee iPad Export" onerror="this.style.display='none'; this.parentElement.textContent='iPad 9';">
+            </div>
+            <div class="screenshot-tablet">
+                <img src="images/ipad-10.png" alt="MyWrntee iPad Widgets" onerror="this.style.display='none'; this.parentElement.textContent='iPad 10';">
+            </div>
+        </div>
+
+        <!-- Apple Watch Screenshots -->
+        <h3 class="device-heading">Apple Watch</h3>
+        <div class="screenshot-row">
             <div class="screenshot-watch">
-                <!-- Replace: images/watch-1.png (Apple Watch expiring soon) -->
-                <img src="images/watch-1.png" alt="MyWrntee on Apple Watch" onerror="this.style.display='none'; this.parentElement.textContent='Apple Watch screenshot';">
+                <img src="images/watch-1.png" alt="MyWrntee Watch Expiring Soon" onerror="this.style.display='none'; this.parentElement.textContent='Watch 1';">
+            </div>
+            <div class="screenshot-watch">
+                <img src="images/watch-2.png" alt="MyWrntee Watch Detail" onerror="this.style.display='none'; this.parentElement.textContent='Watch 2';">
             </div>
         </div>
     </section>
