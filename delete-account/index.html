@@ -142,6 +142,40 @@
         .steps li:last-child {
             margin-bottom: 0;
         }
+        /* Deletion type toggle (within Android section) */
+        .deletion-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e5e5e5;
+        }
+        .deletion-toggle button {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+            color: #86868b;
+        }
+        .deletion-toggle button:first-child {
+            border-right: 1px solid #e5e5e5;
+        }
+        .deletion-toggle button.active {
+            background: #3DDC84;
+            color: #1a3a2a;
+        }
+        .deletion-section {
+            display: none;
+        }
+        .deletion-section.active {
+            display: block;
+        }
+
         .email-link {
             display: inline-block;
             background: #3DDC84;
@@ -156,6 +190,13 @@
         }
         .email-link:hover {
             background: #2ecc71;
+        }
+        .email-link-red {
+            background: #ef5350;
+            color: #fff;
+        }
+        .email-link-red:hover {
+            background: #c62828;
         }
         .data-table {
             width: 100%;
@@ -189,6 +230,15 @@
             display: inline-block;
             background: #e8f5e9;
             color: #2e7d32;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .badge-kept {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
             font-size: 12px;
             font-weight: 600;
             padding: 2px 8px;
@@ -277,6 +327,7 @@
             h1 { font-size: 26px; }
             .data-table th, .data-table td { padding: 8px 12px; font-size: 14px; }
             .platform-toggle button { font-size: 14px; padding: 12px 16px; }
+            .deletion-toggle button { font-size: 13px; padding: 10px 12px; }
         }
     </style>
 </head>
@@ -301,84 +352,169 @@
                 <h2>Android &mdash; Account &amp; Data Deletion</h2>
             </div>
 
-            <p>MyWrntee for Android uses Google Sign-In and stores your data in the cloud. You have the right to request complete deletion of your account and all associated data. This section explains how to make that request and what data will be deleted.</p>
+            <p>MyWrntee for Android uses Google Sign-In and stores your data in the cloud. You can choose to delete just your data (and keep your account) or delete your account and all data entirely.</p>
 
-            <h2>How to Request Deletion</h2>
-            <div class="steps">
-                <ol>
-                    <li>Send an email to <strong>mbj2easy@gmail.com</strong> from the email address linked to your Google sign-in.</li>
-                    <li>Use the subject line: <strong>&quot;MyWrntee - Delete My Account &amp; Data&quot;</strong></li>
-                    <li>In the email body, confirm that you want all your data permanently deleted.</li>
-                    <li>We will process your request and delete all associated data within <strong>30 days</strong>.</li>
-                    <li>You will receive a confirmation email once deletion is complete.</li>
-                </ol>
+            <h2>Choose What to Delete</h2>
+
+            <!-- Deletion type toggle -->
+            <div class="deletion-toggle">
+                <button id="btn-data-only" class="active" onclick="showDeletionType('data-only')">&#x1F5D1; Delete Data Only</button>
+                <button id="btn-account" onclick="showDeletionType('account')">&#x1F6AB; Delete Account &amp; Data</button>
             </div>
 
-            <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20-%20Delete%20My%20Account%20%26%20Data&body=I%20would%20like%20to%20request%20the%20complete%20deletion%20of%20my%20MyWrntee%20account%20and%20all%20associated%20data.%0A%0APlatform%3A%20Android%0AGoogle%20Account%20Email%3A%20" class="email-link">Request Account Deletion</a>
+            <!-- DELETE DATA ONLY -->
+            <div id="deletion-data-only" class="deletion-section active">
+                <p>This option removes all your warranty data from our servers but <strong>keeps your account active</strong>. You can sign back in and start fresh at any time.</p>
 
-            <h2>What Data Is Deleted</h2>
-            <p>When your deletion request is processed, <strong>all</strong> of the following data associated with your account is permanently removed from our servers:</p>
+                <h2>How to Request Data Deletion</h2>
+                <div class="steps">
+                    <ol>
+                        <li>Send an email to <strong>mbj2easy@gmail.com</strong> from the email address linked to your Google sign-in.</li>
+                        <li>Use the subject line: <strong>&quot;MyWrntee - Delete My Data&quot;</strong></li>
+                        <li>In the email body, confirm that you want all your warranty data permanently deleted but wish to <strong>keep your account</strong>.</li>
+                        <li>We will process your request and delete all data within <strong>30 days</strong>.</li>
+                        <li>You will receive a confirmation email once deletion is complete.</li>
+                    </ol>
+                </div>
 
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Data Type</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Warranty items (names, dates, prices, notes)</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Groups and sub-groups</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Receipt photos and product images</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Attached documents (PDFs, files)</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Warranty claims and resolutions</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Google account link and user profile</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                    <tr>
-                        <td>App preferences and settings</td>
-                        <td><span class="badge-deleted">Deleted</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20-%20Delete%20My%20Data&body=I%20would%20like%20to%20request%20the%20deletion%20of%20all%20my%20warranty%20data%20from%20MyWrntee.%20Please%20keep%20my%20account%20active.%0A%0APlatform%3A%20Android%0AGoogle%20Account%20Email%3A%20" class="email-link">Request Data Deletion</a>
 
-            <h2>What Data Is Retained</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Data Type</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="2" style="text-align: center; color: #2e7d32; font-weight: 500;"><span class="badge-none">Nothing retained</span> &mdash; All data is permanently deleted. No data is kept after processing your request.</td>
-                    </tr>
-                </tbody>
-            </table>
+                <h2>What Is Deleted</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Warranty items (names, dates, prices, notes)</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Groups and sub-groups</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Receipt photos and product images</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Attached documents (PDFs, files)</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Warranty claims and resolutions</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>App preferences and settings</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <div class="notice">
-                <p><strong>Important:</strong> Account and data deletion is permanent and cannot be undone. Please export your data from within the app before requesting deletion if you wish to keep a copy.</p>
+                <h2>What Is Kept</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google account link and user profile</td>
+                            <td><span class="badge-kept">Kept</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <p><strong>Start fresh:</strong> After data deletion, you can sign back into MyWrntee with the same Google account and begin adding new warranties. Your account will be ready to use.</p>
+                </div>
+            </div>
+
+            <!-- DELETE ACCOUNT & DATA -->
+            <div id="deletion-account" class="deletion-section">
+                <p>This option permanently removes <strong>your account and all associated data</strong> from our servers. You will need to create a new account if you wish to use MyWrntee again.</p>
+
+                <h2>How to Request Account &amp; Data Deletion</h2>
+                <div class="steps">
+                    <ol>
+                        <li>Send an email to <strong>mbj2easy@gmail.com</strong> from the email address linked to your Google sign-in.</li>
+                        <li>Use the subject line: <strong>&quot;MyWrntee - Delete My Account &amp; Data&quot;</strong></li>
+                        <li>In the email body, confirm that you want your account and all data permanently deleted.</li>
+                        <li>We will process your request and delete everything within <strong>30 days</strong>.</li>
+                        <li>You will receive a confirmation email once deletion is complete.</li>
+                    </ol>
+                </div>
+
+                <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20-%20Delete%20My%20Account%20%26%20Data&body=I%20would%20like%20to%20request%20the%20complete%20deletion%20of%20my%20MyWrntee%20account%20and%20all%20associated%20data.%0A%0APlatform%3A%20Android%0AGoogle%20Account%20Email%3A%20" class="email-link email-link-red">Request Account &amp; Data Deletion</a>
+
+                <h2>What Is Deleted</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Warranty items (names, dates, prices, notes)</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Groups and sub-groups</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Receipt photos and product images</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Attached documents (PDFs, files)</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Warranty claims and resolutions</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>Google account link and user profile</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                        <tr>
+                            <td>App preferences and settings</td>
+                            <td><span class="badge-deleted">Deleted</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>What Is Retained</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="text-align: center; color: #2e7d32; font-weight: 500;"><span class="badge-none">Nothing retained</span> &mdash; All data is permanently deleted. No data is kept after processing your request.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="notice">
+                    <p><strong>Important:</strong> Account and data deletion is permanent and cannot be undone. Please export your data from within the app before requesting deletion if you wish to keep a copy.</p>
+                </div>
             </div>
 
             <h2>In-App Data Deletion</h2>
-            <p>You can also delete all local data directly within the Android app by going to <strong>Settings &gt; Data Management &gt; Delete All Data</strong>. This removes all items, groups, and photos from the app on your device. To also remove your cloud-stored data and account, please submit a deletion request via email as described above.</p>
+            <p>You can also delete all local data directly within the Android app by going to <strong>Settings &gt; Data Management &gt; Delete All Data</strong>. This removes all items, groups, and photos from the app on your device. To also remove your cloud-stored data, please submit a deletion request via email as described above.</p>
         </div>
 
         <!-- ==================== APPLE SECTION ==================== -->
@@ -483,6 +619,19 @@
 
             btnAndroid.className = platform === 'android' ? 'active-android' : '';
             btnApple.className = platform === 'apple' ? 'active-apple' : '';
+        }
+
+        function showDeletionType(type) {
+            // Toggle deletion sub-sections
+            document.getElementById('deletion-data-only').classList.toggle('active', type === 'data-only');
+            document.getElementById('deletion-account').classList.toggle('active', type === 'account');
+
+            // Toggle button styles
+            const btnDataOnly = document.getElementById('btn-data-only');
+            const btnAccount = document.getElementById('btn-account');
+
+            btnDataOnly.className = type === 'data-only' ? 'active' : '';
+            btnAccount.className = type === 'account' ? 'active' : '';
         }
 
         // Check URL hash for direct linking
