@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWrntee - Delete Account &amp; Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #f5f5f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #0071e3;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .app-info {
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: #1d1d1f;
+        }
+        p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .steps {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .steps ol {
+            padding-left: 24px;
+            margin: 0;
+        }
+        .steps li {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .steps li:last-child {
+            margin-bottom: 0;
+        }
+        .email-link {
+            display: inline-block;
+            background: #0071e3;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 8px 0 24px;
+            transition: background 0.2s;
+        }
+        .email-link:hover {
+            background: #005bb5;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 15px;
+        }
+        .data-table th {
+            text-align: left;
+            padding: 10px 16px;
+            background: #f5f5f7;
+            font-weight: 600;
+            color: #1d1d1f;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .data-table td {
+            padding: 10px 16px;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .badge-deleted {
+            display: inline-block;
+            background: #ffebee;
+            color: #c62828;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .badge-none {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+        .notice {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+        .notice p {
+            color: #e65100;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 14px;
+            color: #86868b;
+            text-align: center;
+        }
+        .footer a {
+            color: #0071e3;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px; }
+            h1 { font-size: 26px; }
+            .data-table th, .data-table td { padding: 8px 12px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">&larr; Back to MyWrntee</a>
+        <h1>Delete Account &amp; Data</h1>
+        <p class="app-info">MyWrntee &middot; Warranty Tracker &amp; Organizer &middot; Developer: mbj2easy@gmail.com</p>
+
+        <p>You have the right to request complete deletion of your account and all associated data from MyWrntee. This page explains how to make that request and what data will be deleted.</p>
+
+        <h2>How to Request Deletion</h2>
+        <div class="steps">
+            <ol>
+                <li>Send an email to <strong>mbj2easy@gmail.com</strong> from the email address linked to your Google sign-in (or the email associated with your account).</li>
+                <li>Use the subject line: <strong>"MyWrntee - Delete My Account &amp; Data"</strong></li>
+                <li>In the email body, confirm that you want all your data permanently deleted.</li>
+                <li>We will process your request and delete all associated data within <strong>30 days</strong>.</li>
+                <li>You will receive a confirmation email once deletion is complete.</li>
+            </ol>
+        </div>
+
+        <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20-%20Delete%20My%20Account%20%26%20Data&body=I%20would%20like%20to%20request%20the%20complete%20deletion%20of%20my%20MyWrntee%20account%20and%20all%20associated%20data." class="email-link">Request Account Deletion</a>
+
+        <h2>What Data Is Deleted</h2>
+        <p>When your deletion request is processed, <strong>all</strong> of the following data associated with your account is permanently removed:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Warranty items (names, dates, prices, notes)</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Groups and sub-groups</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Receipt photos and product images</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Attached documents (PDFs, files)</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Warranty claims and resolutions</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+                <tr>
+                    <td>Account profile and preferences</td>
+                    <td><span class="badge-deleted">Deleted</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>What Data Is Retained</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" style="text-align: center; color: #2e7d32; font-weight: 500;"><span class="badge-none">Nothing retained</span> &mdash; All data is permanently deleted. No data is kept after processing your request.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="notice">
+            <p><strong>Important:</strong> Account and data deletion is permanent and cannot be undone. Please export your data from within the app (Settings &gt; Data Management &gt; Export Data) before requesting deletion if you wish to keep a copy.</p>
+        </div>
+
+        <h2>In-App Data Deletion</h2>
+        <p>You can also delete all local data directly within the app by going to <strong>Settings &gt; Data Management &gt; Delete All Data</strong>. This removes all items, groups, and photos from the app on your device. To also remove any cloud-stored data, please submit a deletion request via email as described above.</p>
+
+        <h2>Questions?</h2>
+        <p>If you have any questions about data deletion or your privacy, please contact us at <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20Data%20Deletion%20Question" style="color: #0071e3; text-decoration: none; font-weight: 500;">mbj2easy@gmail.com</a>.</p>
+
+        <div class="footer">
+            <a href="../">Home</a>
+            <a href="../privacy/">Privacy Policy</a>
+            <a href="../support/">Support</a>
+            <a href="mailto:mbj2easy@gmail.com?subject=MyWrntee%20Support%20-">Contact</a>
+            <br><br>
+            &copy; 2026 Michael Jansen. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
