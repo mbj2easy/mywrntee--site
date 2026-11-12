@@ -66,61 +66,6 @@
             line-height: 1.6;
         }
 
-        /* Platform Toggle */
-        .platform-toggle {
-            display: flex;
-            gap: 0;
-            margin-bottom: 32px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #e5e5e5;
-        }
-        .platform-toggle button {
-            flex: 1;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            background: #fff;
-            color: #86868b;
-        }
-        .platform-toggle button:first-child {
-            border-right: 1px solid #e5e5e5;
-        }
-        .platform-toggle button.active-android {
-            background: #3DDC84;
-            color: #1a3a2a;
-        }
-        .platform-toggle button.active-apple {
-            background: #1d1d1f;
-            color: #fff;
-        }
-
-        /* Platform Sections */
-        .platform-section {
-            display: none;
-        }
-        .platform-section.active {
-            display: block;
-        }
-
-        /* Android section accent */
-        .android-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .android-header .platform-icon {
-            font-size: 28px;
-        }
-        .android-header h2 {
-            margin: 0;
-            color: #2e7d32;
-        }
-
         /* Apple section accent */
         .apple-header {
             display: flex;
@@ -136,25 +81,6 @@
             color: #1d1d1f;
         }
 
-        .steps {
-            background: #f5f5f7;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-        .steps ol {
-            padding-left: 24px;
-            margin: 0;
-        }
-        .steps li {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-        .steps li:last-child {
-            margin-bottom: 0;
-        }
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -256,7 +182,6 @@
             .container { padding: 24px; }
             h1 { font-size: 26px; }
             .data-table th, .data-table td { padding: 8px 12px; font-size: 14px; }
-            .platform-toggle button { font-size: 14px; padding: 12px 16px; }
         }
     </style>
 </head>
@@ -271,77 +196,9 @@
         <h1>Delete Account &amp; Data</h1>
         <p class="app-info">MyWrntee &middot; Warranty Tracker &amp; Organizer &middot; Developer: mbj2easy@gmail.com</p>
 
-        <p>Select your platform to see how to delete your data from MyWrntee.</p>
+        <p>Here&rsquo;s how to delete your data from MyWrntee on iPhone, iPad, Mac, and Apple Watch.</p>
 
-        <!-- Platform Toggle -->
-        <div class="platform-toggle">
-            <button id="btn-android" class="active-android" onclick="showPlatform('android')">&#x1F916; Android</button>
-            <button id="btn-apple" onclick="showPlatform('apple')">&#xF8FF; Apple</button>
-        </div>
-
-        <!-- ==================== ANDROID SECTION ==================== -->
-        <div id="section-android" class="platform-section active">
-            <div class="android-header">
-                <span class="platform-icon">&#x1F916;</span>
-                <h2>Android &mdash; Data Deletion</h2>
-            </div>
-
-            <div class="info-box">
-                <p><strong>No account to delete.</strong> MyWrntee for Android does not require an account or sign-in. Your data is stored locally on your device only &mdash; we never store your data on our servers.</p>
-            </div>
-
-            <p>Since all your data stays on your device, you have full control over it. No email request is needed &mdash; you can delete everything directly from the app.</p>
-
-            <h2>How to Delete Your Data</h2>
-
-            <div class="steps">
-                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1d1d1f;">Delete All Data (In-App)</h3>
-                <ol>
-                    <li>Open <strong>MyWrntee</strong> on your Android device.</li>
-                    <li>Go to <strong>Settings &gt; Data Management</strong>.</li>
-                    <li>Tap <strong>Delete All Data</strong>.</li>
-                    <li>Confirm the deletion when prompted.</li>
-                </ol>
-            </div>
-
-            <p>This permanently removes all warranty items, groups, photos, documents, and claims from the app.</p>
-
-            <div class="steps">
-                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #1d1d1f;">Uninstall the App</h3>
-                <ol>
-                    <li>Long-press the <strong>MyWrntee</strong> app icon on your Home Screen.</li>
-                    <li>Tap <strong>Uninstall</strong> and confirm.</li>
-                    <li>This removes the app and all local data from your device.</li>
-                </ol>
-            </div>
-
-            <h2>Where Your Data Is Stored</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Data Type</th>
-                        <th>Storage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Warranty items, groups, photos, documents, claims</td>
-                        <td><span class="badge-local">On-device only</span></td>
-                    </tr>
-                    <tr>
-                        <td>App preferences and settings</td>
-                        <td><span class="badge-local">On-device only</span></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="info-box">
-                <p><strong>Your privacy:</strong> We have zero access to your data. Everything stays on your device. There are no servers, no accounts, and nothing to request deletion of &mdash; you own and control all your data.</p>
-            </div>
-        </div>
-
-        <!-- ==================== APPLE SECTION ==================== -->
-        <div id="section-apple" class="platform-section">
+        <div>
             <div class="apple-header">
                 <span class="platform-icon">&#xF8FF;</span>
                 <h2>Apple &mdash; Data Deletion</h2>
@@ -414,7 +271,6 @@
             </div>
         </div>
 
-        <!-- ==================== SHARED ==================== -->
         <hr class="divider">
 
         <h2>Questions?</h2>
@@ -430,24 +286,5 @@
         </div>
     </div>
 
-    <script>
-        function showPlatform(platform) {
-            // Toggle sections
-            document.getElementById('section-android').classList.toggle('active', platform === 'android');
-            document.getElementById('section-apple').classList.toggle('active', platform === 'apple');
-
-            // Toggle button styles
-            const btnAndroid = document.getElementById('btn-android');
-            const btnApple = document.getElementById('btn-apple');
-
-            btnAndroid.className = platform === 'android' ? 'active-android' : '';
-            btnApple.className = platform === 'apple' ? 'active-apple' : '';
-        }
-
-        // Check URL hash for direct linking
-        if (window.location.hash === '#apple') {
-            showPlatform('apple');
-        }
-    </script>
 </body>
 </html>
